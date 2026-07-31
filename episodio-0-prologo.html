@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manual Zombie X — Prólogo</title>
+
+<!--
+  ================================================================
+  NOTAS PARA CESAR
+  ================================================================
+  Scroll continuo (cascada): todas las páginas completas de cómic
+  seguidas, tal cual las generas con todo el texto ya integrado.
+
+  Para agregar una página nueva: duplica un bloque <section class=
+  "comic-page"> de abajo, cambia el número de imagen, y listo — se
+  suma al final del scroll automáticamente.
+  ================================================================
+-->
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Special+Elite&display=swap');
+  :root{
+    --black:#0a0a0a;
+    --yellow:#f2c012;
+    --bone:#e9e3d2;
+    --line:#2b2925;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0;
+    background:#050505;
+    color:var(--bone);
+    font-family:'Special Elite', monospace;
+  }
+  header{
+    position:sticky; top:0; z-index:90;
+    background:rgba(10,10,10,.95);
+    border-bottom:3px solid var(--yellow);
+    padding:12px 16px;
+    display:flex; align-items:center; justify-content:space-between;
+    flex-wrap:wrap; gap:8px;
+  }
+  header .logo{ height:34px; }
+  header .tag{ font-size:.65rem; opacity:.6; letter-spacing:1px; }
+  .toplinks a{
+    color:var(--yellow); text-decoration:none; opacity:.8;
+    font-size:.68rem; margin:0 8px; letter-spacing:1px;
+  }
+  .toplinks a:hover{ opacity:1; text-decoration:underline; }
+
+  .comic-page{ max-width:640px; margin:0 auto; padding:16px 16px 0; }
+  .comic-page img{
+    width:100%; display:block;
+    border:1px solid var(--line);
+  }
+  .tape{
+    height:22px; margin:10px 0;
+    background:repeating-linear-gradient(45deg, var(--black) 0 14px, var(--yellow) 14px 28px);
+  }
+
+  footer{ text-align:center; padding:24px; font-size:.6rem; opacity:.4; }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="images/logo.webp" alt="Manual Zombie" class="logo">
+  <span class="tag">PRÓLOGO</span>
+  <div class="toplinks">
+    <a href="index.html">Inicio</a>
+    <a href="manual-zombie-comic.html">Episodio 1 →</a>
+    <a href="episodio-2-manual-zombie.html">Episodio 2 →</a>
+  </div>
+</header>
+
+<section class="comic-page">
+  <img src="images/ep0-page-1.webp" alt="Prólogo página 1">
+</section>
+<div class="tape"></div>
+
+<section class="comic-page">
+  <img src="images/ep0-page-2.webp" alt="Prólogo página 2 — Día cero">
+</section>
+<div class="tape"></div>
+
+<section class="comic-page">
+  <img src="images/ep0-page-3.webp" alt="Prólogo página 3 — Todavía humano">
+</section>
+<div class="tape"></div>
+
+<section class="comic-page">
+  <img src="images/ep0-page-4.webp" alt="Prólogo página 4 — La última lección">
+</section>
+
+<footer>MANUAL ZOMBIE — 10ª EDICIÓN · TODOS LOS DERECHOS RESERVADOS</footer>
+
+</body>
+</html>
