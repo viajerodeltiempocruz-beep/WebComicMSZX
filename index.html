@@ -14,11 +14,11 @@
   la gente vea al entrar al link principal.
 
   Usa las imágenes que ya tienes en la carpeta images/:
-  - logo.webp
-  - ficha-walter.webp  (OJO: esta es la versión que aún le falta la
+  - logo.png
+  - ficha-walter.png  (OJO: esta es la versión que aún le falta la
     sección inferior — cuando generes la versión completa, solo
     reemplaza el archivo con el mismo nombre)
-  - ficha-vale.webp
+  - ficha-vale.png
 
   La sección "Próximamente" no necesita imágenes todavía — muestra
   siluetas con signos de interrogación hasta que definas y generes
@@ -287,7 +287,7 @@
 <body>
 
 <header>
-  <img src="images/logo.webp" alt="Manual Zombie" class="logo">
+  <img src="images/logo.png" alt="Manual Zombie" class="logo">
 </header>
 
 <div class="hero">
@@ -305,6 +305,12 @@
     que se enamoró es exactamente lo que está aprendiendo a cazar.
   </div>
   <a href="capitulos.html" style="display:inline-block;margin-top:24px;padding:12px 26px;border:2px solid var(--yellow);color:var(--yellow);font-family:'Anton',sans-serif;letter-spacing:2px;text-decoration:none;font-size:.85rem;">VER CAPÍTULOS →</a>
+
+  <div id="visit-badge" style="display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:10px 20px;background:var(--panel);border:2px solid var(--yellow);border-radius:30px;">
+    <span style="font-size:1.1rem;">👁</span>
+    <span style="font-size:.8rem;letter-spacing:1px;">SOBREVIVIENTES QUE HAN VISTO ESTO:</span>
+    <span id="visit-count" style="font-family:'Anton',sans-serif;color:var(--yellow);font-size:1rem;">...</span>
+  </div>
 </div>
 
 <div class="tape"></div>
@@ -330,8 +336,8 @@
 <div class="chars">
   <h2>LOS SOBREVIVIENTES</h2>
   <div class="chars-grid">
-    <img class="ficha-img" src="images/ficha-walter.webp" alt="Ficha de Walter">
-    <img class="ficha-img" src="images/ficha-vale.webp" alt="Ficha de Vale">
+    <img class="ficha-img" src="images/ficha-walter.png" alt="Ficha de Walter">
+    <img class="ficha-img" src="images/ficha-vale.png" alt="Ficha de Vale">
   </div>
 </div>
 
@@ -340,21 +346,34 @@
   <div class="sub">Se irán sumando más a medida que avanza la historia.</div>
   <div class="soon-grid">
     <div class="soon-card known">
-      <img src="images/ficha-zenobia.webp" alt="Doña Zenobia">
+      <img src="images/ficha-zenobia.png" alt="Doña Zenobia">
       <div class="info"><div class="name">DOÑA ZENOBIA</div></div>
     </div>
     <div class="soon-card known">
-      <img src="images/ficha-casera.webp" alt="La Casera">
+      <img src="images/ficha-casera.png" alt="La Casera">
       <div class="info"><div class="name">LA CASERA</div></div>
     </div>
     <div class="soon-card known">
-      <img src="images/ficha-chico.webp" alt="Chico">
+      <img src="images/ficha-chico.png" alt="Chico">
       <div class="info"><div class="name">CHICO</div></div>
     </div>
   </div>
 </div>
 
-<footer>MANUAL ZOMBIE — 10ª EDICIÓN · TODOS LOS DERECHOS RESERVADOS</footer>
+<footer>
+  MANUAL ZOMBIE — 10ª EDICIÓN · TODOS LOS DERECHOS RESERVADOS
+</footer>
+
+<script>
+  fetch('https://countapi.mileshilliard.com/api/v1/hit/manualzombiex-lapaz-2026')
+    .then(r => r.json())
+    .then(data => {
+      document.getElementById('visit-count').textContent = data.value.toLocaleString('es-BO');
+    })
+    .catch(() => {
+      document.getElementById('visit-count').textContent = '1000+';
+    });
+</script>
 
 </body>
 </html>
