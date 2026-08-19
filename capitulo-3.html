@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manual Zombie X — Capítulo 3: Siempre hay espacio al fondo</title>
+
+<!--
+  ================================================================
+  NOTAS PARA CESAR
+  ================================================================
+  Placeholder genérico de 10 páginas mientras me pasas el guion
+  detallado (títulos y cantidad real de páginas). Formato cascada,
+  igual que los demás capítulos.
+
+  Guarda las páginas como: cap3-page-1.png a cap3-page-10.png
+  Si el capítulo tiene menos de 10, borra los bloques <section>
+  sobrantes. Si tiene más, duplica un bloque y sigue la numeración.
+  ================================================================
+-->
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Special+Elite&display=swap');
+  :root{ --black:#0a0a0a; --yellow:#f2c012; --bone:#e9e3d2; --line:#2b2925; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#050505; color:var(--bone); font-family:'Special Elite', monospace; }
+  header{
+    position:sticky; top:0; z-index:90;
+    background:rgba(10,10,10,.95);
+    border-bottom:3px solid var(--yellow);
+    padding:12px 16px;
+    display:flex; align-items:center; justify-content:space-between;
+    flex-wrap:wrap; gap:8px;
+  }
+  header .logo{ height:34px; }
+  header .tag{ font-size:.65rem; opacity:.6; letter-spacing:1px; }
+  .toplinks a{
+    color:var(--yellow); text-decoration:none; opacity:.8;
+    font-size:.68rem; margin:0 8px; letter-spacing:1px;
+  }
+  .toplinks a:hover{ opacity:1; text-decoration:underline; }
+  .comic-page{ max-width:640px; margin:0 auto; padding:16px 16px 0; }
+  .comic-page img{ width:100%; display:block; border:1px solid var(--line); }
+  .placeholder-page{
+    display:none;
+    aspect-ratio:2/3;
+    border:2px dashed var(--yellow);
+    background:repeating-linear-gradient(135deg, #1a1a1a 0 2px, #141311 2px 14px);
+    color:var(--yellow);
+    align-items:center; justify-content:center; flex-direction:column; gap:8px;
+    text-align:center; padding:20px; font-size:.75rem;
+  }
+  .tape{
+    height:22px; margin:10px 0;
+    background:repeating-linear-gradient(45deg, var(--black) 0 14px, var(--yellow) 14px 28px);
+  }
+  footer{ text-align:center; padding:24px; font-size:.6rem; opacity:.4; }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="images/logo.png" alt="Manual Zombie" class="logo">
+  <span class="tag">CAPÍTULO 3 · SIEMPRE HAY ESPACIO AL FONDO</span>
+  <div class="toplinks">
+    <a href="index.html">Inicio</a>
+    <a href="capitulos.html">Capítulos</a>
+    <a href="episodio-2-manual-zombie.html">← Capítulo 2</a>
+  </div>
+</header>
+
+<section class="comic-page">
+  <img src="images/cap3-page-1.png" alt="Capítulo 3 página 1">
+  <div class="placeholder-page">📄 Falta: images/cap3-page-1.png</div>
+</section>
+<div class="tape"></div>
+
+<section class="comic-page">
+  <img src="images/cap3-page-2.png" alt="Capítulo 3 página 2">
+  <div class="placeholder-page">📄 Falta: images/cap3-page-2.png</div>
+</section>
+<div class="tape"></div>
+
+<section class="comic-page">
+  <img src="images/cap3-page-3.png" alt="Capítulo 3 página 3">
+  <div class="placeholder-page">📄 Falta: images/cap3-page-3.png</div>
+</section>
+<div class="tape"></div>
+
+<section class="comic-page">
+  <img src="images/cap3-page-4.png" alt="Capítulo 3 página 4">
+  <div class="placeholder-page">📄 Falta: images/cap3-page-4.png</div>
+</section>
+<div class="tape"></div>
+
+<section class="comic-page">
+  <img src="images/cap3-page-5.png" alt="Capítulo 3 página 5">
+  <div class="placeholder-page">📄 Falta: images/cap3-page-5.png</div>
+</section>
+<div class="tape"></div>
+
+<section class="comic-page">
+  <img src="images/cap3-page-6.png" alt="Capítulo 3 página 6">
+  <div class="placeholder-page">📄 Falta: images/cap3-page-6.png</div>
+</section>
+<div class="tape"></div>
+
+<section class="comic-page">
+  <img src="images/cap3-page-7.png" alt="Capítulo 3 página 7">
+  <div class="placeholder-page">📄 Falta: images/cap3-page-7.png</div>
+</section>
+<div class="tape"></div>
+
+<section class="comic-page">
+  <img src="images/cap3-page-8.png" alt="Capítulo 3 página 8">
+  <div class="placeholder-page">📄 Falta: images/cap3-page-8.png</div>
+</section>
+<div class="tape"></div>
+
+<section class="comic-page">
+  <img src="images/cap3-page-9.png" alt="Capítulo 3 página 9">
+  <div class="placeholder-page">📄 Falta: images/cap3-page-9.png</div>
+</section>
+<div class="tape"></div>
+
+<section class="comic-page">
+  <img src="images/cap3-page-10.png" alt="Capítulo 3 página 10">
+  <div class="placeholder-page">📄 Falta: images/cap3-page-10.png</div>
+</section>
+
+
+<footer>MANUAL ZOMBIE — 10ª EDICIÓN · TODOS LOS DERECHOS RESERVADOS</footer>
+
+<script>
+  document.querySelectorAll('.comic-page img').forEach(img => {
+    img.addEventListener('error', () => {
+      img.style.display = 'none';
+      img.nextElementSibling.style.display = 'flex';
+    });
+  });
+</script>
+
+</body>
+</html>
