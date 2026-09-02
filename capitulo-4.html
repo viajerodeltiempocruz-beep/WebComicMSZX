@@ -3,31 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Manual Zombie X — Capítulo 1: Parecer Vivo</title>
+<title>Manual Zombie X — Capítulo 4</title>
 
 <!--
   ================================================================
   NOTAS PARA CESAR
   ================================================================
-  Mismo formato que el Prólogo: scroll continuo con páginas
-  completas de cómic (texto ya integrado en la imagen).
+  Placeholder genérico de 10 páginas. Formato cascada, igual que
+  los demás capítulos. Guarda las páginas como:
+  cap4-page-1.webp a cap4-page-10.webp
 
-  Guarda las páginas nuevas como:
-  cap1-page-1.webp, cap1-page-2.webp, cap1-page-3.webp,
-  cap1-page-4.webp, cap1-page-5.webp, cap1-page-6.webp
-  (usa los prompts que te di para regenerarlas en el nuevo estilo)
-
-  Cuando termines de generarlas, ve a capitulos.html y reemplaza la
-  tarjeta bloqueada de "CAPÍTULO 1" por una tarjeta con link a este
-  archivo, usando cap1-page-1.webp como afiche/portada.
+  Si tiene menos de 10 páginas, borra los bloques <section>
+  sobrantes. Si tiene más, duplica un bloque y sigue la numeración.
+  Cuando me pases el título y el guion, actualizamos los nombres
+  de cada página como hicimos con el Capítulo 2.
   ================================================================
 -->
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Anton&family=Special+Elite&display=swap');
-  :root{
-    --black:#0a0a0a; --yellow:#f2c012; --bone:#e9e3d2; --line:#2b2925;
-  }
+  :root{ --black:#0a0a0a; --yellow:#f2c012; --bone:#e9e3d2; --line:#2b2925; }
   *{ box-sizing:border-box; }
   body{ margin:0; background:#050505; color:var(--bone); font-family:'Special Elite', monospace; }
   header{
@@ -45,12 +40,11 @@
     font-size:.68rem; margin:0 8px; letter-spacing:1px;
   }
   .toplinks a:hover{ opacity:1; text-decoration:underline; }
-
   .comic-page{ max-width:640px; margin:0 auto; padding:16px 16px 0; }
   .comic-page img{ width:100%; display:block; border:1px solid var(--line); }
   .placeholder-page{
     display:none;
-    aspect-ratio:3/4;
+    aspect-ratio:2/3;
     border:2px dashed var(--yellow);
     background:repeating-linear-gradient(135deg, #1a1a1a 0 2px, #141311 2px 14px);
     color:var(--yellow);
@@ -68,77 +62,74 @@
 
 <header>
   <img src="images/logo.webp" alt="Manual Zombie" class="logo">
-  <span class="tag">CAPÍTULO 1 · PARECER VIVO</span>
+  <span class="tag">CAPÍTULO 4</span>
   <div class="toplinks">
     <a href="index.html">Inicio</a>
     <a href="capitulos.html">Capítulos</a>
-    <a href="episodio-0-prologo.html">← Prólogo</a>
-    <a href="episodio-2-manual-zombie.html">Capítulo 2 →</a>
+    <a href="capitulo-3.html">← Capítulo 3</a>
+    <a href="capitulo-5.html">Capítulo 5 →</a>
   </div>
 </header>
 
 <section class="comic-page">
-  <img src="images/cap1-page-1.webp" alt="Capítulo 1 página 1">
-  <div class="placeholder-page">📄 Falta: images/cap1-page-1.webp</div>
+  <img src="images/cap4-page-1.webp" alt="Capítulo 4 página 1">
+  <div class="placeholder-page">📄 Falta: images/cap4-page-1.webp</div>
 </section>
 <div class="tape"></div>
 
 <section class="comic-page">
-  <img src="images/cap1-page-2.webp" alt="Capítulo 1 página 2">
-  <div class="placeholder-page">📄 Falta: images/cap1-page-2.webp</div>
+  <img src="images/cap4-page-2.webp" alt="Capítulo 4 página 2">
+  <div class="placeholder-page">📄 Falta: images/cap4-page-2.webp</div>
 </section>
 <div class="tape"></div>
 
 <section class="comic-page">
-  <img src="images/cap1-page-3.webp" alt="Capítulo 1 página 3">
-  <div class="placeholder-page">📄 Falta: images/cap1-page-3.webp</div>
+  <img src="images/cap4-page-3.webp" alt="Capítulo 4 página 3">
+  <div class="placeholder-page">📄 Falta: images/cap4-page-3.webp</div>
 </section>
 <div class="tape"></div>
 
 <section class="comic-page">
-  <img src="images/cap1-page-4.webp" alt="Capítulo 1 página 4">
-  <div class="placeholder-page">📄 Falta: images/cap1-page-4.webp</div>
+  <img src="images/cap4-page-4.webp" alt="Capítulo 4 página 4">
+  <div class="placeholder-page">📄 Falta: images/cap4-page-4.webp</div>
 </section>
 <div class="tape"></div>
 
 <section class="comic-page">
-  <img src="images/cap1-page-5.webp" alt="Capítulo 1 página 5">
-  <div class="placeholder-page">📄 Falta: images/cap1-page-5.webp</div>
+  <img src="images/cap4-page-5.webp" alt="Capítulo 4 página 5">
+  <div class="placeholder-page">📄 Falta: images/cap4-page-5.webp</div>
 </section>
 <div class="tape"></div>
 
 <section class="comic-page">
-  <img src="images/cap1-page-6.webp" alt="Capítulo 1 página 6">
-  <div class="placeholder-page">📄 Falta: images/cap1-page-6.webp</div>
+  <img src="images/cap4-page-6.webp" alt="Capítulo 4 página 6">
+  <div class="placeholder-page">📄 Falta: images/cap4-page-6.webp</div>
 </section>
-
 <div class="tape"></div>
 
 <section class="comic-page">
-  <img src="images/cap1-page-7.webp" alt="Capítulo 1 página 7">
-  <div class="placeholder-page">📄 Falta: images/cap1-page-7.webp</div>
+  <img src="images/cap4-page-7.webp" alt="Capítulo 4 página 7">
+  <div class="placeholder-page">📄 Falta: images/cap4-page-7.webp</div>
 </section>
-
 <div class="tape"></div>
 
 <section class="comic-page">
-  <img src="images/cap1-page-8.webp" alt="Capítulo 1 página 8">
-  <div class="placeholder-page">📄 Falta: images/cap1-page-8.webp</div>
+  <img src="images/cap4-page-8.webp" alt="Capítulo 4 página 8">
+  <div class="placeholder-page">📄 Falta: images/cap4-page-8.webp</div>
 </section>
-
 <div class="tape"></div>
 
 <section class="comic-page">
-  <img src="images/cap1-page-9.webp" alt="Capítulo 1 página 9">
-  <div class="placeholder-page">📄 Falta: images/cap1-page-9.webp</div>
+  <img src="images/cap4-page-9.webp" alt="Capítulo 4 página 9">
+  <div class="placeholder-page">📄 Falta: images/cap4-page-9.webp</div>
 </section>
-
 <div class="tape"></div>
 
 <section class="comic-page">
-  <img src="images/cap1-page-10.webp" alt="Capítulo 1 página 10">
-  <div class="placeholder-page">📄 Falta: images/cap1-page-10.webp</div>
+  <img src="images/cap4-page-10.webp" alt="Capítulo 4 página 10">
+  <div class="placeholder-page">📄 Falta: images/cap4-page-10.webp</div>
 </section>
+
 
 <footer>MANUAL ZOMBIE — 10ª EDICIÓN · TODOS LOS DERECHOS RESERVADOS</footer>
 
