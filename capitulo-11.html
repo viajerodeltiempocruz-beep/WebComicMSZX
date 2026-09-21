@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manual Zombie X — Capítulo 11: Presentaciones</title>
+
+<!--
+  Las páginas se cargan solas desde images/ con el nombre:
+  images/cap11-page-1.webp, images/cap11-page-2.webp, images/cap11-page-3.webp ...
+  No importa cuántas páginas tenga: se detiene en la primera que no exista.
+-->
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Special+Elite&display=swap');
+  :root{ --black:#0a0a0a; --yellow:#f2c012; --bone:#e9e3d2; --line:#2b2925; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#050505; color:var(--bone); font-family:'Special Elite', monospace; }
+  header{
+    position:sticky; top:0; z-index:90;
+    background:rgba(10,10,10,.95);
+    border-bottom:3px solid var(--yellow);
+    padding:12px 16px;
+    display:flex; align-items:center; justify-content:space-between;
+    flex-wrap:wrap; gap:8px;
+  }
+  header .logo{ height:34px; }
+  header .tag{ font-size:.65rem; opacity:.6; letter-spacing:1px; }
+  .toplinks a{
+    color:var(--yellow); text-decoration:none; opacity:.8;
+    font-size:.68rem; margin:0 8px; letter-spacing:1px;
+  }
+  .toplinks a:hover{ opacity:1; text-decoration:underline; }
+  .comic-page{ max-width:640px; margin:0 auto; padding:16px 16px 0; }
+  .comic-page img{ width:100%; display:block; border:1px solid var(--line); }
+  .placeholder-page{
+    aspect-ratio:2/3;
+    border:2px dashed var(--yellow);
+    background:repeating-linear-gradient(135deg, #1a1a1a 0 2px, #141311 2px 14px);
+    color:var(--yellow);
+    display:flex; align-items:center; justify-content:center; flex-direction:column; gap:8px;
+    text-align:center; padding:20px; font-size:.75rem;
+  }
+  .tape{
+    height:22px; margin:10px 0;
+    background:repeating-linear-gradient(45deg, var(--black) 0 14px, var(--yellow) 14px 28px);
+  }
+  .pager{
+    display:none;
+    max-width:640px; margin:0 auto; padding:24px 16px 0;
+    gap:12px; justify-content:space-between; flex-wrap:wrap;
+  }
+  .pager a{
+    flex:1 1 140px; text-align:center;
+    padding:12px 16px;
+    border:2px solid var(--yellow); color:var(--yellow);
+    font-family:'Anton', sans-serif; letter-spacing:2px; font-size:.8rem;
+    text-decoration:none;
+  }
+  .pager a:hover, .pager a:focus-visible{ background:var(--yellow); color:var(--black); outline:none; }
+  footer{ text-align:center; padding:24px; font-size:.6rem; opacity:.4; }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="images/logo.webp" alt="Manual Zombie" class="logo">
+  <span class="tag">CAPÍTULO 11 · PRESENTACIONES</span>
+  <div class="toplinks">
+    <a href="index.html">Inicio</a>
+    <a href="capitulos.html">Capítulos</a>
+    <a href="capitulo-10.html">← Capítulo 10</a>
+    <a href="capitulo-12.html">Capítulo 12 →</a>
+  </div>
+</header>
+
+<main id="pages"></main>
+
+<nav class="pager" id="pager">
+  <a href="capitulo-10.html">← Capítulo 10</a>
+  <a href="capitulo-12.html">Capítulo 12 →</a>
+</nav>
+
+<footer>MANUAL ZOMBIE — 10ª EDICIÓN · TODOS LOS DERECHOS RESERVADOS</footer>
+
+<script>
+  // Carga las páginas en orden (PREFIX + número + EXT) y se detiene
+  // cuando ya no encuentra más. Así funciona con cualquier cantidad
+  // de páginas, sin editar nada.
+  (function(){
+    var PREFIX = 'images/cap11-page-';
+    var EXT    = '.webp';
+    var LABEL  = 'Capítulo 11';
+    var MAX    = 80;
+    var box    = document.getElementById('pages');
+    var count  = 0;
+
+    function finish(){
+      if (count === 0){
+        var s = document.createElement('section');
+        s.className = 'comic-page';
+        s.innerHTML = '<div class="placeholder-page">📄 Falta: ' + PREFIX + '1' + EXT + '</div>';
+        box.appendChild(s);
+      }
+      document.getElementById('pager').style.display = 'flex';
+    }
+
+    function next(i){
+      if (i > MAX) return finish();
+      var img = new Image();
+      img.alt = LABEL + ' página ' + i;
+      img.onload = function(){
+        if (count > 0){
+          var t = document.createElement('div');
+          t.className = 'tape';
+          box.appendChild(t);
+        }
+        var s = document.createElement('section');
+        s.className = 'comic-page';
+        s.appendChild(img);
+        box.appendChild(s);
+        count++;
+        next(i + 1);
+      };
+      img.onerror = finish;
+      img.src = PREFIX + i + EXT;
+    }
+    next(1);
+  })();
+</script>
+
+</body>
+</html>
