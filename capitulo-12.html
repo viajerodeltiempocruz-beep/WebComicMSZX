@@ -8,7 +8,7 @@
 <!--
   Las páginas se cargan solas desde images/ con el nombre:
   images/cap12-page-1.webp, images/cap12-page-2.webp, images/cap12-page-3.webp ...
-  No importa cuántas páginas tenga: se detiene en la primera que no exista.
+  Muestra 10 páginas y no deja de cargar por una imagen faltante.
 -->
 
 <style>
@@ -84,48 +84,47 @@
 <footer>MANUAL ZOMBIE — 10ª EDICIÓN · TODOS LOS DERECHOS RESERVADOS</footer>
 
 <script>
-  // Carga las páginas en orden (PREFIX + número + EXT) y se detiene
-  // cuando ya no encuentra más. Así funciona con cualquier cantidad
-  // de páginas, sin editar nada.
-  (function(){
-    var PREFIX = 'images/cap12-page-';
-    var EXT    = '.webp';
-    var LABEL  = 'Capítulo 12';
-    var MAX    = 80;
-    var box    = document.getElementById('pages');
-    var count  = 0;
+  // Capítulo 12: imágenes numeradas del 1 al 10.
+  // Primero busca dentro de images/ y, si no existe, en la raíz.
+  // Una página faltante no interrumpe las demás.
+  (function () {
+    const TOTAL_PAGINAS = 10; // Cambia este número si el capítulo tiene más páginas.
+    const contenedor = document.getElementById('pages');
+    const navegador = document.getElementById('pager');
 
-    function finish(){
-      if (count === 0){
-        var s = document.createElement('section');
-        s.className = 'comic-page';
-        s.innerHTML = '<div class="placeholder-page">📄 Falta: ' + PREFIX + '1' + EXT + '</div>';
-        box.appendChild(s);
+    for (let numero = 1; numero <= TOTAL_PAGINAS; numero++) {
+      if (numero > 1) {
+        const separador = document.createElement('div');
+        separador.className = 'tape';
+        contenedor.appendChild(separador);
       }
-      document.getElementById('pager').style.display = 'flex';
-    }
 
-    function next(i){
-      if (i > MAX) return finish();
-      var img = new Image();
-      img.alt = LABEL + ' página ' + i;
-      img.onload = function(){
-        if (count > 0){
-          var t = document.createElement('div');
-          t.className = 'tape';
-          box.appendChild(t);
+      const seccion = document.createElement('section');
+      seccion.className = 'comic-page';
+      const imagen = document.createElement('img');
+      const nombre = `cap12-page-${numero}.webp`;
+      const rutas = [`images/${nombre}`, nombre];
+      let intento = 0;
+      imagen.alt = `Capítulo 12, página ${numero}`;
+      imagen.loading = numero <= 2 ? 'eager' : 'lazy';
+      imagen.decoding = 'async';
+      imagen.onerror = function () {
+        intento++;
+        if (intento < rutas.length) {
+          imagen.src = rutas[intento];
+        } else {
+          imagen.remove();
+          const aviso = document.createElement('div');
+          aviso.className = 'placeholder-page';
+          aviso.textContent = `No se encontró ${nombre}. Revisa que esté en la carpeta images/ de GitHub.`;
+          seccion.appendChild(aviso);
         }
-        var s = document.createElement('section');
-        s.className = 'comic-page';
-        s.appendChild(img);
-        box.appendChild(s);
-        count++;
-        next(i + 1);
       };
-      img.onerror = finish;
-      img.src = PREFIX + i + EXT;
+      seccion.appendChild(imagen);
+      contenedor.appendChild(seccion);
+      imagen.src = rutas[0];
     }
-    next(1);
+    navegador.style.display = 'flex';
   })();
 </script>
 
